@@ -10,7 +10,7 @@ Plugin Name: Twilio Manager
 Plugin URI: http://www.paulbunyan.net
 Description:  Loader for Twilio manager app
 Author: Nelson Castillo
-Version: 0.01
+Version: 0.02
 Author URI: http://www.castillonelson.com
 */
 
@@ -27,15 +27,24 @@ add_action('admin_head', 'gzLoaderAddCss');
 function gzLoader()
 {
     $title = __(get_plugin_data(__FILE__)['Name']);
-    $url = 'http://'.$_SERVER['HTTP_HOST']."/app/manage/";
-    echo
-        '<div class="wrap twl-wrap">
-            <h1>' . esc_html($title) . '</h1>
-            <div class="twl-iframe-wrap"> 
-                <iframe src="/app/manage/game" id="theIframe" class="twl-iframe"></iframe>
-            </div>
-        </div>
-        ';
+    $url = 'http://'.$_SERVER['HTTP_HOST']."/wp-content/plugins/twilio-manager/";
+    require_once 'app/blade.php';
+    require_once 'app/twilio.php';
+
+    $views = __DIR__ . '/app/views';
+    $cache = __DIR__ . '/app/cache';
+
+    $blade = new \Nelson\BLADE\Blade($views, $cache);
+    echo $blade->view()->make('hello')->render();
+
+//    echo
+//        '<div class="wrap twl-wrap">
+//            <h1>' . esc_html($title) . '</h1>
+//            <div class="twl-iframe-wrap">
+//                <iframe src="'. $url . 'app/index.php" id="theIframe" class="twl-iframe"></iframe>
+//            </div>
+//        </div>
+//        ';
 
     return null;
 }
@@ -90,7 +99,7 @@ function jal_install() {
 
     add_option( 'twilio_pbc_db_version', $twilio_pbc_twilio_pbc_db_version );
 
-    $cmd = "composer require twilio/sdk";
+    $cmd = "sh init.sh";
     exec($cmd . " > /dev/null &");
 
 
@@ -105,8 +114,8 @@ function jal_uninstall() {
     $wpdb->query($sql);
     delete_option("my_plugin_db_version");
 
-    $cmd = "composer remove twilio/sdk --update-with-dependencies";
-    exec($cmd . " > /dev/null &");
+//    $cmd = "composer remove twilio/sdk --update-with-dependencies";
+//    exec($cmd . " > /dev/null &");
 
 }
 function myplugin_update_db_check() {

@@ -6,13 +6,13 @@
  * Time: 17:29
  */
 
-namespace Pbc\PBC_Twilio;
+namespace Nelson\TWILIO;
 require_once dirname(dirname(dirname(dirname(dirname(__DIR__))))) .'/vendor/autoload.php';
 /**
  * Class GetMail
  * @package Pbc\Mail
  */
-class PBC_Twilio
+class Twilio
 {
 
     /**
