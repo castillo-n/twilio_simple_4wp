@@ -1,43 +1,38 @@
-{"repositories": [
-  {
-    "type": "package",
-    "package": {
-      "name": "castillo-n/twilio",
-      "version": "0.0.1",
-      "description": "Send messages with twilio api",
-      "source": {
-        "url": "git://github.com/castillo-n/twilio_simple_4wp.git",
-        "type": "git",
-        "reference": "master"
-      },
-      "authors": [
-        {
-          "name": "Nelson Castillo",
-          "email": "castillo@paulbunyan.net"
-        }
-      ],
-      "require": {
-        "php": ">=5.6.0",
-        "vlucas/phpdotenv": "~2.2",
-        "twilio/sdk": ">=5.4.2"
-      },
-      "require-dev": {
-      },
-      "autoload": {
-        "psr-4": {
-          "Pbc\\twilio\\": "src/"
-        }
-      },
-      "minimum-stability": "stable",
-      "scripts": {
-        "post-package-install": [
-          ""
-        ],
-        "pre-package-uninstall": [
-          ""
-        ]
-      }
+ {
+  "name": "castillo-n/twilio",
+  "license": "MIT",
+  "version": "0.0.1",
+  "description": "Send messages with twilio api",
+  "source": {
+    "url": "git://github.com/castillo-n/twilio_simple_4wp.git",
+    "type": "git",
+    "reference": "master"
+  },
+  "authors": [
+    {
+      "name": "Nelson Castillo",
+      "email": "castillo@paulbunyan.net"
     }
+  ],
+  "require": {
+    "php": ">=5.6.0",
+    "vlucas/phpdotenv": "~2.2",
+    "twilio/sdk": ">=5.4.2"
+  },
+  "require-dev": {
+  },
+  "autoload": {
+    "psr-4": {
+      "Pbc\\twilio\\": "src/"
+    }
+  },
+  "minimum-stability": "stable",
+  "scripts": {
+    "post-package-install": [
+      ""
+    ],
+    "pre-package-uninstall": [
+      ""
+    ]
   }
-]
 }
