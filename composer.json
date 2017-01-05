@@ -2,7 +2,7 @@
   {
     "type": "package",
     "package": {
-      "name": "paulbunyannet/twilio",
+      "name": "castillo-n/twilio",
       "version": "0.0.1",
       "description": "Send messages with twilio api",
       "source": {
